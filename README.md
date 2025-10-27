@@ -61,7 +61,7 @@ text
 
 npm install
 
-text
+3text
 
 3. Start frontend development server:
 
@@ -70,3 +70,30 @@ npm run dev
 text
 
 4. Open browser at `http://localhost:3000` (or address shown in console).
+
+---
+## How API works
+API is defined as Application programmable interface that helps to communicate between to medium. 
+
+## frontend:
+React + Vite is used as frontend, that helps to interact with users to get data and it make HTTP request to the backend API to get job done or it helps to modify jobs when we add, update and delete the values.
+It call the corresponding API endpoint to update the data on the server
+## Backend (Express):
+
+Express is used as a backend server and middleware to get data from the users and modify that raw data into json() format and send it to the backend database.
+Helps to create the backend server.
+Frontend -> Express (Middleware) <- backend => Both frontend and backend communicate with help API
+It helps to get data from the user and give it to the mongodb database
+
+GET /api/jobs returns all jobs.
+
+POST /api/jobs adds a new job.
+
+PUT /api/jobs/:id edits a job by its ID.
+
+DELETE /api/jobs/:id deletes a job by its ID.
+
+## MongoDB:
+
+A NoSQL database to store all your job applications. Each job has details like company name, job title, application date, and status.
+
