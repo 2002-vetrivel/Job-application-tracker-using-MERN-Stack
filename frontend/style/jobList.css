@@ -1,0 +1,223 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+.lists
+{
+    margin: 20px;
+    padding: 10px;
+    border: 0.1px solid grey;
+    border-radius: 10px;
+
+}
+.lists h1
+{
+    margin-left: 20px;
+}
+.job-list-container {
+  margin: 40px auto;
+  width: 90%;
+  max-width: 900px;
+  background: ghostwhite;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.job-list-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "Manufacturing Consent", system-ui;
+  font-weight: 400;
+}
+
+.job-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: "Josefin Slab", serif;
+}
+
+.job-table th,
+.job-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.job-table th {
+  background-color: #007ff0;
+  color: white;
+  font-weight: 600;
+}
+
+.job-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.job-table tr:hover {
+  background-color: #aad1ff;
+  transition: 0.2s ease;
+}
+
+.status.applied {
+  color: blue;
+  font-weight: 600;
+}
+.status.interview {
+  color: orange;
+  font-weight: 600;
+}
+.status.offer {
+  color: green;
+  font-weight: 600;
+}
+.status.rejected {
+  color: red;
+  font-weight: 600;
+}
+
+.no-jobs {
+  text-align: center;
+  padding: 50px;
+  font-size: 18px;
+  color: grey;
+}
+
+.editButtons
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-left: -15px;
+}
+.job-list-container {
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  .job-table thead {
+    display: none; 
+  }
+
+  .job-table, 
+  .job-table tbody, 
+  .job-table tr, 
+  .job-table td {
+    display: block;  
+    width: 100%;
+  }
+
+  .job-table tr {
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+  }
+
+  .job-table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+  
+  .job-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    width: 45%;
+    padding-left: 10px;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .editButtons {
+    justify-content: flex-start;
+    gap: 12px;
+    margin-left: 0;
+  }
+}
+
+.see, .edit, .delete
+{
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.see
+{
+    background-color: rgb(3, 245, 3);
+}
+.edit
+{
+    background-color: rgb(255, 184, 52);
+}
+.delete
+{
+    background-color: rgb(255, 53, 53);
+}
+.see:hover
+{
+    background-color: rgb(0, 145, 0);
+    color: ghostwhite;
+}
+.edit:hover
+{
+    background-color: rgb(159, 103, 0);
+    color: ghostwhite;
+
+}
+.delete:hover
+{
+    background-color: rgb(172, 2, 2);
+    color: ghostwhite;
+
+}
+/* Popup styling */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  width: 320px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  text-align: left;
+  animation: fadeIn 0.2s ease-in;
+}
+
+.popup h2 {
+  margin-bottom: 10px;
+}
+
+.popup p {
+  margin: 6px 0;
+}
+
+.close-popup {
+  background: crimson;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
