@@ -24,11 +24,8 @@ function App() {
   };
 
   const viewJobHandler = (index) => {
-  setSelectedJob(jobs[index]);
-};
-
-
-
+    setSelectedJob(jobs[index]);
+  };
 
   const addOrUpdateJob = async (job) => {
     try {
@@ -48,17 +45,6 @@ function App() {
       console.error('Add/update job failed', error);
     }
   };
-{selectedJob && (
-  <div className="popup-overlay">
-    <div className="popup">
-      <h2>{selectedJob.companyName}</h2>
-      <p><strong>Job Title:</strong> {selectedJob.jobTitle}</p>
-      <p><strong>Status:</strong> {selectedJob.status}</p>
-      <p><strong>Applied Date:</strong> {new Date(selectedJob.applicationDate).toLocaleDateString()}</p>
-      <button onClick={() => setSelectedJob(null)}>Close</button>
-    </div>
-  </div>
-)}
 
   const deleteJobHandler = async (index) => {
     if (!window.confirm('Are you sure you want to delete this job?')) return;
@@ -92,13 +78,12 @@ function App() {
 
       {showForm && (
         <div className="jobforms">
-        <JobForm
-          onAdd={addOrUpdateJob}
-          editData={editIndex !== null ? jobs[editIndex] : null}
-          onCancel={cancelEdit}
-        />
+          <JobForm
+            onAdd={addOrUpdateJob}
+            editData={editIndex !== null ? jobs[editIndex] : null}
+            onCancel={cancelEdit}
+          />
         </div>
-       
       )}
 
       <JobList 
@@ -107,6 +92,24 @@ function App() {
         onDelete={deleteJobHandler}
         onView={viewJobHandler} 
       />
+
+      {selectedJob && (
+        <div className="popup-overlay">
+          <div className="popup">
+            <h2>{selectedJob.companyName}</h2>
+            <p><strong>Job Title:</strong> {selectedJob.jobTitle}</p>
+            <p><strong>Status:</strong> {selectedJob.status}</p>
+            <p><strong>Applied Date:</strong> {new Date(selectedJob.applicationDate).toLocaleDateString()}</p>
+            {selectedJob.updatedAt && (
+              <p><strong>Last Modified:</strong> {new Date(selectedJob.updatedAt).toLocaleString()}</p>
+            )}
+            {selectedJob.description && (
+              <p><strong>Description:</strong> {selectedJob.description}</p>
+            )}
+            <button className="close-btn" onClick={() => setSelectedJob(null)}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
