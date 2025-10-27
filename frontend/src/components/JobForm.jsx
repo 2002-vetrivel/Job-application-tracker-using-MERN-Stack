@@ -8,11 +8,9 @@ const JobForm = ({ onAdd, editData, onCancel }) => {
     applicationDate: '',
     status: 'Applied'
   });
-
   const [error, setError] = useState('');
   const todayDate = new Date().toISOString().split('T')[0];
 
-  // 🪄 When editing — pre-fill the form
   useEffect(() => {
     if (editData) {
       setForm(editData);
@@ -45,7 +43,6 @@ const JobForm = ({ onAdd, editData, onCancel }) => {
 
     onAdd(form);
 
-    // reset only if adding (not editing)
     if (!editData) {
       setForm({
         companyName: '',
@@ -109,8 +106,8 @@ const JobForm = ({ onAdd, editData, onCancel }) => {
             )}
           </div>
         </form>
+        {error && <div className="error" style={{fontFamily:'sans-serif', color : 'red', textAlign : 'center', fontSize : '10px', margin : '10px'}}>{error}</div>}
       </div>
-      {error && <div className="error">{error}</div>}
     </div>
   );
 };
