@@ -8,25 +8,6 @@ A simple job application tracker using MERN stack:
 
 ---
 
-## Folder Structure
-
-my-job-tracker/
-├── backend/
-│ ├── models/
-│ ├── routes/
-│ ├── .env
-│ ├── server.js
-│ └── package.json
-├── frontend/
-│ ├── src/
-│ ├── package.json
-│ └── vite.config.js
-└── README.md
-
-text
-
----
-
 ## Setup and Running Instructions
 
 ### Backend
